@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import axios from 'axios';
 
 
-const Login = () => {
+
+
+const Login = ({history}) => {
     // controlled state of the form
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -22,6 +24,7 @@ const Login = () => {
           .catch(error => {
             console.error('LOGIN ERROR', error);
           });
+        history.push('/users')
     }
 
  return (
