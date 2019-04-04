@@ -9,6 +9,17 @@ const Login = () => {
     const handleSubmit = event => {
         event.preventDefault();
         console.log("hi")
+
+        const endpoint = 'http://localhost:5000/api/auth/login';
+        axios
+          .post(endpoint, ({username, password}))
+          .then(res => {
+            console.log('LOGIN RESPONSE', res);
+            localStorage.setItem('token', res.data.token);
+          })
+          .catch(error => {
+            console.error('LOGIN ERROR', error);
+          });
     }
 
  return (
