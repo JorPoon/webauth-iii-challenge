@@ -3,12 +3,14 @@ import axios from 'axios';
 
 
 const Login = () => {
+    // controlled state of the form
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    // make axios post call when login button is clicked
     const handleSubmit = event => {
+        //prevents reloading
         event.preventDefault();
-        console.log("hi")
 
         const endpoint = 'http://localhost:5000/api/auth/login';
         axios
@@ -23,6 +25,7 @@ const Login = () => {
     }
 
  return (
+     //username and password input
      <form>
          <div>
          <input 
